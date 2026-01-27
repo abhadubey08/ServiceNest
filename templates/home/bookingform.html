@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}Book a Service | ServiceNest{% endblock %}
+
+{% block extra_css %}
+<style>
+.booking-section {
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+.booking-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  padding: 40px 30px 30px 30px;
+  max-width: 650px;
+  width: 100%;
+  margin: auto;
+  border: 2px solid #0e3b43;
+  position: relative;
+  overflow: hidden;
+}
+.booking-card h2 {
+  color: #0e3b43;
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+.form-label {
+  font-weight: 500;
+  color: #0e3b43;
+  margin-bottom: 6px;
+}
+.form-control, .form-select {
+  border-radius: 8px;
+  background: #f7fafd;
+  border: 1.5px solid #b2bec3;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  transition: border 0.3s;
+}
+.form-control:focus, .form-select:focus {
+  border-color: #0e3b43;
+  background: #fff;
+  outline: none;
+}
+.btn-success {
+  background: linear-gradient(90deg, #0e3b43 60%, #1284ae 100%);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(14, 59, 67, 0.10);
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-success:hover {
+  background: linear-gradient(90deg, #1284ae 60%, #0e3b43 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+.booking-summary {
+  background: #e0f7fa;
+  border: 2px solid #1284ae;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-top: 24px;
+  text-align: center;
+  color: #0e3b43;
+  font-size: 1.1rem;
+}
+.secure-payment {
+  color: #1284ae;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+@media (max-width: 700px) {
+  .booking-card {
+    padding: 18px 8px 18px 8px;
+    border-radius: 12px;
+  }
+  .booking-card h2 {
+    font-size: 1.3rem;
+  }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="booking-section">
+  <div class="booking-card">
+    <h2>Book a Service</h2>
+    <form method="post" class="row g-3 mx-auto">
+      {% csrf_token %}
+      <div class="col-md-6">
+        <label for="id_name" class="form-label">Your Name</label>
+        {{ form.name|add_class:"form-control" }}
+      </div>
+      <div class="col-md-6">
+        <label for="id_email" class="form-label">Your Email</label>
+        {{ form.email|add_class:"form-control" }}
+      </div>
+      <div class="col-md-6">
+        <label for="id_phone" class="form-label">Phone Number</label>
+        {{ form.phone|add_class:"form-control" }}
+      </div>
+      <div class="col-md-6">
+        <label for="id_service" class="form-label">Select Service</label>
+        {{ form.service|add_class:"form-select" }}
+      </div>
+      <div class="col-12">
+        <label for="id_description" class="form-label">Describe your issue or request</label>
+        {{ form.description|add_class:"form-control" }}
+      </div>
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-success btn-lg">Submit Booking</button>
+      </div>
+      <div class="col-12 text-center mt-2 secure-payment">
+        <i class="fas fa-lock"></i> Secure online payment options available
+      </div>
+    </form>
+    {% if success %}
+      <div class="booking-summary mt-4">
+        <i class="fas fa-check-circle fa-2x mb-2" style="color:#1284ae;"></i><br>
+        <strong>Your booking has been submitted!</strong><br>
+        <span>Booking Number:</span>
+        <div style="font-size:1.2rem; font-weight:600; letter-spacing:1px;">{{ booking_number }}</div>
+        <div class="mt-2">Please save this number for future reference.</div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

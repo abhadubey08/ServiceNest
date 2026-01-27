@@ -1,0 +1,203 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Keyframes for fade-in */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  /* background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed; */
+  background-size: cover;
+  position: relative;
+}
+.login::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  /* background: rgba(30, 41, 59, 0.65); */
+  /* backdrop-filter: blur(7px); */
+  z-index: 0;
+}
+
+/* Container Styles */
+.contain {
+  position: relative;
+  z-index: 1;
+  width: 400px;
+  margin: 60px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  animation: fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) both;
+}
+
+.form-box {
+  width: 100%;
+  background: rgba(255,255,255,0.93);
+  border-radius: 22px;
+  border: 3px solid #111;
+  box-shadow: 0 12px 32px 0 rgba(44, 62, 80, 0.18), 0 1.5px 6px rgba(212, 163, 115, 0.08);
+  padding: 38px 28px 28px 28px;
+  color: #222;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-box::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 120px;
+  height: 120px;
+  background: #1284ae;
+  opacity: 0.09;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.form-box h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #0e3b43;
+  text-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  text-align: center;
+  margin-bottom: 22px;
+  color: #1284ae;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.input-box i {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #1284ae;
+  font-size: 1.3rem;
+  opacity: 0.85;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 15px 12px 48px;
+  border: 2px solid #1284ae;
+  border-radius: 25px;
+  font-size: 1rem;
+  color: #222;
+  background: #f7fafd;
+  outline: none;
+  transition: all 0.3s cubic-bezier(.23,1.01,.32,1);
+  box-shadow: 0 2px 8px rgba(18, 132, 174, 0.08);
+}
+
+.input-box input:focus {
+  background: #fff;
+  box-shadow: 0 0 12px 2px #1284ae55;
+  border: 2px solid #0e3b43;
+}
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.97rem;
+  color: #0e3b43;
+  margin-bottom: 10px;
+}
+
+.remember-forgot a {
+  color: #1284ae;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.remember-forgot a:hover {
+  color: #d4a373;
+  text-decoration: underline;
+}
+
+/* Button Styles */
+.butn {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #1284ae 0%, #d4a373 100%);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(.23,1.01,.32,1);
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.13);
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+}
+
+.butn:hover {
+  background: linear-gradient(135deg, #d4a373 0%, #1284ae 100%);
+  box-shadow: 0 8px 24px rgba(44, 62, 80, 0.22);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Login/Register Link */
+.login-register {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 1rem;
+}
+
+.login-register a {
+  color: #1284ae;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.login-register a:hover {
+  color: #d4a373;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .container {
+    width: 98vw;
+    padding: 18px 4vw 18px 4vw;
+  }
+  .form-box {
+    padding: 18px 6vw 18px 6vw;
+    border-radius: 14px;
+  }
+  .form-box h2 {
+    font-size: 1.4rem;
+  }
+}

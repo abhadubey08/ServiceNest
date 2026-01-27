@@ -1,0 +1,48 @@
+<!-- filepath: d:\python\ServiceNest\templates\home\register.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Register | ServiceNest{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+{% endblock %}
+
+{% block content %}
+<section class="login">
+  <div class="contain">
+    <div class="form-box">
+      <h2>Register</h2>
+      <p class="subtitle">Create your ServiceNest account</p>
+      {% if success %}
+        <div class="alert alert-success">Registration successful! You can now <a href="{% url 'Login' %}">login</a>.</div>
+      {% endif %}
+      <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="input-box">
+          <i class="fas fa-user"></i>
+          {{ form.username }}
+        </div>
+        <div class="input-box">
+          <i class="fas fa-envelope"></i>
+          {{ form.email }}
+        </div>
+        <div class="input-box">
+          <i class="fas fa-lock"></i>
+          {{ form.password }}
+        </div>
+        <div class="input-box">
+          <i class="fas fa-lock"></i>
+          {{ form.confirm_password }}
+        </div>
+        <button type="submit" class="butn">Register</button>
+        <div class="login-register">
+          <p>Already have an account? <a href="{% url 'Login' %}">Login</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

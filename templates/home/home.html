@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Welcome to ServiceNest{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+{% endblock %}
+
+{% block content %}
+
+
+  <!-- Hero Section -->
+  <section id="home" class="hero position-relative">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1 class="display-4 fw-bold">Book Trusted Home Services in Minutes</h1>
+      <p class="lead">Fast, local, and verified pros for plumbing, electrical, carpentry, mechanics, and salon at home. Transparent pricing. 24/7 support. 100% satisfaction guaranteed.</p>
+      <a href="#booking" class="btn btn-warning btn-lg mt-3">Book a Service</a>
+      <div class="mt-3">
+         <a href="tel:+1234567890" class="text-white fw-bold">
+        📞 +1 234 567 890</a>
+        &nbsp; | &nbsp;
+      <a href="mailto:info@homeservices.com" class="text-white">info@homeservices.com</a>
+      </div>
+    
+    </div>
+  </section>
+  
+
+  <!-- Sticky CTA (Mobile/All Devices) -->
+  <a href="#booking" class="sticky-cta d-lg-none"><i class="fas fa-calendar-check"></i> Book Now</a>
+
+  <!-- Our Services Button -->
+  <section id="services-button" class="py-5 text-center">
+    <button id="toggleServices" class="btn btn-primary btn-lg">
+      <a href="{% url 'services' %}">Show Our Services</a></button>
+  </section> 
+  
+  <!-- About Us -->
+  <section id="about" class="py-5 bg-light">
+    <div class="view">
+    <div class="container">
+      <h2 class="mb-4 text-center">About Us</h2>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p>
+            <strong>HomeServices</strong> is your trusted partner for all home and personal care services. With a team of certified professionals, transparent pricing, and a customer-first approach, we make your life easier. Our mission is to deliver hassle-free, reliable, and safe services right at your doorstep.
+          </p>
+          <ul>
+            <li>10+ years of experience</li>
+            <li>Background-verified professionals</li>
+            <li>24/7 customer support</li>
+            <li>100% satisfaction guarantee</li>
+          </ul>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="{% static "images/aboutt.jpg" %}" alt="Our Team" class="img-fluid rounded shadow">
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  {% comment %} container {% endcomment %}
+  <section class="elect_services">
+    <div class="wrap">
+        <div class="service_h">
+            <h1> Our Top Services</h1>
+        </div>
+            <div class="contain">
+                <div class="card">
+                    <img src="{% static "images/elect.jpg" %}">
+                        <div class="det">
+                            <div class="btn">Electrician</div>
+                            </div>
+                </div>
+
+                <div class="card">
+                    <img src="{% static "images/ac.png" %}">
+                         <div class="det">
+                            <div class="btn">AC Repair</div>
+                          </div>
+                 </div>
+
+        <div class="card">
+            <img src="{% static "images/stress relief.jpg" %}">
+            <div class="det">
+               <div class="btn">Salon</div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+  <!-- Booking Form (Lead Form) -->
+  <section id="booking" class="py-5">
+    <div class="book">
+    <div class="container">
+      <h2 class="mb-4 text-center">Book a Service</h2>
+      <form method="post" class="row g-3 mx-auto" style="max-width: 600px;">
+        {% csrf_token %}
+        <div class="col-md-6">
+          <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="col-md-6">
+          <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="col-md-6">
+          <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
+        </div>
+        <div class="col-md-6">
+          <select class="form-select" name="service" required>
+            <option value="">Select Service</option>
+            <option>Plumber</option>
+            <option>Electrician</option>
+            <option>Carpenter</option>
+            <option>Mechanic</option>
+            <option>Salon at Home</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <textarea class="form-control" name="description" rows="3" placeholder="Describe your issue or request"></textarea>
+        </div>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-success btn-lg">Submit Booking</button>
+        </div>
+        <div class="col-12 text-center mt-2 secure-payment">
+          <i class="fas fa-lock"></i> Secure online payment options available
+        </div>
+        {% if success %}
+          <div class="alert alert-success mt-3">Your booking has been submitted!</div>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+  </section>
+
+   <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center">Contact Us</h2>
+      <form class="row g-3 mx-auto" style="max-width: 600px;">
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="col-md-6">
+          <input type="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="col-12">
+          <textarea class="form-control" rows="3" placeholder="Your Message" required></textarea>
+        </div>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+        </div>
+      </form>
+      <div class="text-center mt-3">
+        <a href="tel:+1234567890">📞+1 234 567 890</a> &nbsp; | &nbsp;
+        <i class="fas fa-envelope"></i> <a href="mailto:info@homeservices.com">info@homeservices.com</a>
+      </div>
+
+  
+  <!-- Blog/Resource Section -->
+  <section id="blog" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-center">Tips & Resources</h2>
+      <div class="row">
+        <div class="col-md-4 blog-card">
+          <h5>How to Prevent Common Plumbing Issues</h5>
+          <p>Simple tips to avoid leaks and clogs at home. <a href="#">Read more</a></p>
+        </div>
+        <div class="col-md-4 blog-card">
+          <h5>5 Electrical Safety Tips for Every Homeowner</h5>
+          <p>Protect your family and property with these essential tips. <a href="#">Read more</a></p>
+        </div>
+        <div class="col-md-4 blog-card">
+          <h5>DIY: Small Furniture Fixes</h5>
+          <p>Easy repairs you can do yourself before calling a carpenter. <a href="#">Read more</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Give Review Section -->
+  <section id="review" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-center">Give Your Review</h2>
+      <form id="reviewForm" class="row g-3 mx-auto" style="max-width: 600px;">
+        <div class="col-md-6">
+          <input type="text" id="reviewerName" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="col-md-6">
+          <input type="email" id="reviewerEmail" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="col-12">
+          <textarea id="reviewMessage" class="form-control" rows="3" placeholder="Write your review here..." required></textarea>
+        </div>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary btn-lg">Submit Review</button>
+        </div>
+      </form>
+      <div id="reviewSuccessMessage" class="text-center mt-3 text-success" style="display: none;">
+        <i class="fas fa-check-circle"></i> Thank you for your review!
+      </div>
+    </div>
+  </section>
+    </div>
+  </section>
+
+ 
+{% endblock %}

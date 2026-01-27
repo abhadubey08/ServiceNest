@@ -1,0 +1,58 @@
+<!-- filepath: d:\python\ServiceNest\templates\home\about.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - ServiceNest{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="hero-content">
+        <h1>Who we are</h1>
+        <p>Welcome to ServiceNest, your one-stop solution for all your home service needs.</p>
+    </div>
+<div class="about">
+    <div class="image">
+        <img src="{% static 'images/about.jpg' %}" alt="About Us">
+    </div>
+    <div class="content">
+        <h3>About Us</h3>
+        <p>We are a team of skilled professionals dedicated to providing top-notch services in various fields.
+            Our mission is to deliver quality work that exceeds our clients' expectations. With years of experience and a commitment to excellence, we take pride in our ability to tackle any project, big or small.
+            Our team is equipped with the latest tools and techniques to ensure that we deliver the best results.</p>
+    </div>
+</div>
+
+<div class="why-us">
+    <div class="image">
+        <img src="{% static 'images/mission.jpg' %}" alt="Why Choose Us">
+    </div>
+    <div class="container">
+    <div class="why-us-content">
+        <h3>Why Choose Us?</h3>
+        <p>We understand that choosing the right service provider can be a daunting task. That's why we strive to make the process as easy as possible for our clients. Here are a few reasons why you should choose us:</p>
+    </div>
+       
+     <div class="scard">
+        <div class="card">
+            <div class="card-body">
+                  <h5> Experienced Professionals</h5>
+                <p> Our team consists of highly skilled and experienced professionals who are experts in their respective fields.</p>
+            </div>
+        </div>
+   
+
+        <div class="card">
+            <div class="card-body">
+                  <h5>Quality Work</h5>
+                <p> We take pride in delivering high-quality work that meets and exceeds our clients' expectations..</p>
+            </div>
+        </div> 
+    </div>
+</div>
+     
+    </div>
+</div>
+{% endblock %}

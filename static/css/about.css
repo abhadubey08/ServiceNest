@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1{
+       text-align: center;
+    font-family: 'Limelight',sans-serif;
+
+}
+
+body {
+    font-family: 'Poppins',  sans-serif;
+    color: #333;
+    background-color: #f6f6f6;
+}
+.hero-content p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+img{
+    height: 300px;
+    width: 500px;
+    align-items: left;
+    top: 50px;
+    margin-left: 50px;
+}
+img:hover{  
+    transform: scale(1.01);
+    transition: 0.5s;
+}
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    margin-right: 50px;
+    margin-top: -10px;
+   
+}
+h1{
+    justify-content: center;
+    font-size: 50px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 700;
+}
+h1:hover{
+    color: #333;
+    text-decoration: none;    
+    transform: scale(1.1);
+    transition: 0.5s;
+    color: #0e3b43
+}
+
+h3{
+    justify-content: center;
+    font-size: 40px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 700;
+}
+h3:hover{
+    color: #333;
+    text-decoration: none;    
+    transform: scale(1.1);
+    transition: 0.5s;
+    color: #0e3b43
+}
+.about p{
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 20px;
+    text-align: justify;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px; 
+}
+.content{
+    
+    box-sizing: border-box;
+    top: 50px;
+    box-shadow: #333;
+    border-radius: 10px;
+    padding: 0px 40px 0px 40px;
+}
+.why-us{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center; 
+    line-height: 1.5;
+   
+}
+h2{
+    justify-content: center;
+    font-size: 50px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 700;
+}
+.why-us-content{
+    box-sizing: border-box;
+    top: 200px;
+    box-shadow: #333;
+    border-radius: 10px;
+    padding: 20px 20px 20px 20px;
+    margin-left: 50px;
+}
+.why-us-content p{
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 20px;
+    text-align: justify;
+    color: #333;
+}
+.card{
+    margin-top: 20px;
+    text-align: justify;
+    color: #000000;
+    width: 300px;
+    border-color: #0e3b43;
+    background-color: #92a1a4;
+    text-align: center;
+}
+.scard{
+   
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin-left: 40px;
+}
+.why-us img{
+    width: 400px;
+    height: 400px;
+    padding-top: 20px;
+    padding-right: 40px;
+}
+
+.service-card:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+    background-color: #3ab0c5;
+}

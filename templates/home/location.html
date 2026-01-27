@@ -1,0 +1,41 @@
+<!-- Add this in your <head> -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<!-- Add this in your <body> where you want the map -->
+<div id="map" style="height: 400px; width: 100%;"></div>
+<button onclick="getLocation()" class="btn btn-primary mt-2">Show My Live Location</button>
+
+<!-- Add these scripts at the end of your <body> -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+let map, marker;
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition, showError, {enableHighAccuracy: true});
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+function showPosition(position) {
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude;
+
+    if (!map) {
+        map = L.map('map').setView([lat, lng], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        marker = L.marker([lat, lng]).addTo(map)
+            .bindPopup("You are here!").openPopup();
+    } else {
+        marker.setLatLng([lat, lng]);
+        map.setView([lat, lng], 15);
+    }
+}
+
+function showError(error) {
+    alert("Unable to retrieve your location.");
+}
+</script>

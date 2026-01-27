@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Viva Answers | ServiceNest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+        }
+        .viva-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+            padding: 40px 30px 30px 30px;
+        }
+        .viva-title {
+            color: #0e3b43;
+            text-align: center;
+            margin-bottom: 32px;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .section-title {
+            color: #1284ae;
+            margin-top: 32px;
+            margin-bottom: 18px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-left: 4px solid #1284ae;
+            padding-left: 12px;
+            background: #e0f7fa;
+            border-radius: 4px;
+        }
+        .question {
+            font-weight: 600;
+            color: #0e3b43;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+        .question i {
+            color: #1284ae;
+            margin-right: 8px;
+        }
+        .answer {
+            color: #333;
+            background: #f7fafd;
+            border-left: 3px solid #d4a373;
+            border-radius: 0 8px 8px 0;
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            font-size: 1.04rem;
+        }
+        ul, ol {
+            margin-bottom: 0;
+        }
+        code, pre {
+            background: #e0f7fa;
+            color: #1284ae;
+            border-radius: 4px;
+            padding: 2px 6px;
+        }
+        @media (max-width: 700px) {
+            .viva-container {
+                padding: 18px 6px 18px 6px;
+            }
+            .viva-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="viva-container">
+    <div class="viva-title"><i class="fas fa-question-circle"></i> Project Viva Answers</div>
+
+    <div class="section-title">General Project Questions</div>
+    <div class="question"><i class="fas fa-circle-question"></i>1. What is the main objective of your Home Services project?</div>
+    <div class="answer">
+        The main objective is to provide a user-friendly online platform where users can easily book trusted home and personal care services such as Electrician, Plumber, Carpenter, Painter, Cleaning, and Salon at Home. The platform streamlines the process of finding, booking, and managing home services.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>2. Which technologies and frameworks did you use in this project?</div>
+    <div class="answer">
+        The project is built using Django (Python) for the backend, HTML and Django templates for the frontend, CSS (with Bootstrap) for styling, and SQLite as the default database. Additional libraries include django-widget-tweaks for form rendering and Font Awesome for icons.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>3. How is your project structured (explain the folder structure)?</div>
+    <div class="answer">
+        The project follows Django’s standard structure:<br>
+        <pre>
+ServiceNest/ (project root)
+├── home/ (main app: models.py, views.py, forms.py, admin.py, urls.py, templates/home/)
+├── static/ (CSS, images)
+├── db.sqlite3 (database)
+├── manage.py (Django management script)
+└── ServiceNest/ (settings.py, urls.py)
+        </pre>
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>4. What are the main features offered by your website?</div>
+    <div class="answer">
+        <ul>
+            <li>User registration and login</li>
+            <li>Service listings for various home services</li>
+            <li>Booking system with unique booking numbers</li>
+            <li>Admin panel for managing services, bookings, and users</li>
+            <li>Responsive and attractive UI</li>
+            <li>Contact form and secure payment note</li>
+        </ul>
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>5. How does your project handle different types of services (like Electrician, Plumber, Salon, etc.)?</div>
+    <div class="answer">
+        Each service type is represented by a model in the database. Services are managed via the admin panel and displayed dynamically on the website. Users can select the desired service when booking.
+    </div>
+
+    <div class="section-title">Django & Backend</div>
+    <div class="question"><i class="fas fa-circle-question"></i>6. What is a Django model? How did you use models in your project?</div>
+    <div class="answer">
+        A Django model is a Python class that defines the structure of database tables. In this project, models are used to represent services, bookings, and other entities, allowing Django to manage data storage and retrieval.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>7. Explain how you created and used the Booking model.</div>
+    <div class="answer">
+        The Booking model includes fields for user details, service type, description, and a unique booking number. When a user submits the booking form, a Booking object is created and saved to the database.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>8. How do you generate and store a unique booking number for each booking?</div>
+    <div class="answer">
+        A custom booking number is generated in the Booking model’s save() method, combining a prefix, date, and a unique code (using uuid4). This ensures each booking can be referenced uniquely.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>9. How do you handle user registration and authentication?</div>
+    <div class="answer">
+        User registration and authentication use Django’s built-in User model and authentication system. Custom forms and views are created for registration and login, and Django’s authentication middleware manages user sessions.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>10. What is the purpose of Django’s admin panel in your project?</div>
+    <div class="answer">
+        The admin panel allows administrators to manage users, services, and bookings through a secure web interface without writing SQL queries.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>11. How do you register models with the Django admin?</div>
+    <div class="answer">
+        Models are registered in admin.py using the <code>@admin.register</code> decorator or <code>admin.site.register()</code>, enabling them to be managed via the admin panel.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>12. How do you handle form validation in your project?</div>
+    <div class="answer">
+        Form validation is handled using Django forms and ModelForms, which automatically validate required fields and data types. Custom validation logic is added in the form’s <code>clean()</code> method if needed.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>13. How do you connect your Django project to a database?</div>
+    <div class="answer">
+        Database settings are configured in settings.py. By default, SQLite is used, but it can be changed to PostgreSQL, MySQL, etc. Django ORM handles all database interactions.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>14. What is the use of migrations in Django?</div>
+    <div class="answer">
+        Migrations are used to apply changes to the database schema (like creating or altering tables) based on changes in models.py. They are created with <code>makemigrations</code> and applied with <code>migrate</code>.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>15. How do you display dynamic data (like services or bookings) in your templates?</div>
+    <div class="answer">
+        Views fetch data from the database and pass it to templates via context. Templates use Django’s template language to loop over and display this data dynamically.
+    </div>
+
+    <div class="section-title">Frontend & Templates</div>
+    <div class="question"><i class="fas fa-circle-question"></i>16. How do you use Django templates to render dynamic content?</div>
+    <div class="answer">
+        Django templates use placeholders (<code>{{ }}</code>) and template tags (<code>{% %}</code>) to insert dynamic data and logic, such as loops and conditionals, into HTML pages.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>17. How do you include static files (CSS, images) in your templates?</div>
+    <div class="answer">
+        Static files are placed in the static/ directory. The <code>{% load static %}</code> tag is used in templates, and files are referenced with <code>{% static 'path/to/file' %}</code>.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>18. How do you ensure your website is responsive and user-friendly?</div>
+    <div class="answer">
+        Bootstrap is used for responsive design, and custom CSS ensures the site looks good on all devices. Forms and buttons are styled for usability.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>19. How do you display the logged-in user’s name and handle login/logout in the navbar?</div>
+    <div class="answer">
+        The base template checks if <code>user.is_authenticated</code>. If true, it displays the username and a logout button; otherwise, it shows login and register buttons.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>20. How do you show success messages after a user books a service?</div>
+    <div class="answer">
+        After a successful booking, the view passes a success flag and the booking number to the template, which displays a styled success message.
+    </div>
+
+    <div class="section-title">Forms & User Experience</div>
+    <div class="question"><i class="fas fa-circle-question"></i>21. How do you create and use Django forms for user input?</div>
+    <div class="answer">
+        Django forms and ModelForms are used to define form fields and validation. They are rendered in templates and process POST data in views.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>22. How do you handle CSRF protection in your forms?</div>
+    <div class="answer">
+        Django provides CSRF protection by default. The <code>{% csrf_token %}</code> tag is included in all forms to prevent cross-site request forgery.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>23. How do you display form errors to the user?</div>
+    <div class="answer">
+        Form errors are displayed in the template using <code>{{ form.errors }}</code> or by rendering each field’s errors next to the input.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>24. How do you ensure only valid data is saved to the database?</div>
+    <div class="answer">
+        Django forms validate data before saving. If the form is not valid, errors are shown and data is not saved.
+    </div>
+
+    <div class="section-title">Advanced/Deployment</div>
+    <div class="question"><i class="fas fa-circle-question"></i>25. How would you deploy this project to a production server?</div>
+    <div class="answer">
+        Deployment involves setting <code>DEBUG=False</code>, configuring allowed hosts, using a production-ready database, collecting static files, and deploying with a WSGI server like Gunicorn or uWSGI behind Nginx or Apache.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>26. How would you add email notifications for bookings?</div>
+    <div class="answer">
+        By configuring Django’s email backend in settings.py and sending emails in the booking view after a successful booking using <code>send_mail()</code>.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>27. How would you allow users to reset their password?</div>
+    <div class="answer">
+        By using Django’s built-in password reset views and templates, which handle sending reset emails and updating passwords securely.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>28. How would you add search or filter functionality for services?</div>
+    <div class="answer">
+        By adding search forms and using Django ORM queries with <code>filter()</code> in views to display filtered results in templates.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>29. How would you secure sensitive user data?</div>
+    <div class="answer">
+        By using Django’s authentication system, HTTPS, secure password storage (hashing), and proper permissions in views and admin.
+    </div>
+
+    <div class="question"><i class="fas fa-circle-question"></i>30. How would you scale your project if the number of users increases?</div>
+    <div class="answer">
+        By switching to a more robust database (like PostgreSQL), using caching, load balancing, optimizing queries, and deploying on scalable cloud infrastructure.
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!-- filepath: d:\python\ServiceNest\templates\home\logout.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Logged Out | ServiceNest{% endblock %}
+  {% block extra_css %}
+  <style>
+    body {
+    background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card {
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    border: 2px solid #0e3b43;
+    background: #fff;
+}
+
+.card-body h2 {
+    color: #0e3b43;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.card-body .lead {
+    color: #1284ae;
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #0e3b43 60%, #1284ae 100%);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #1284ae 60%, #0e3b43 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+
+.btn-outline-secondary {
+    border-radius: 8px;
+    font-weight: 600;
+    color: #1284ae;
+    border: 2px solid #1284ae;
+    background: #e0f7fa;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-outline-secondary:hover {
+    background: #1284ae;
+    color: #fff;
+    border-color: #0e3b43;
+}
+  </style>
+    {% endblock %}
+
+{% block content %}
+<div class="container py-5 text-center">
+    <div class="card mx-auto shadow" style="max-width: 400px;">
+        <div class="card-body">
+            <h2 class="mb-3 text-success"><i class="fas fa-sign-out-alt"></i> Logged Out</h2>
+            <p class="lead">You have been successfully logged out.</p>
+            <a href="{% url 'home' %}" class="btn btn-primary mt-3">Return to Home</a>
+            <a href="{% url 'Login' %}" class="btn btn-outline-secondary mt-3 ms-2">Login Again</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
